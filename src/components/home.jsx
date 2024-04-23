@@ -4,7 +4,7 @@ const Home = () => {
   const [data, setData] = useState("");
   return (
     <>
-      <h1 className="text-3xl font-bold underline">sowo-gv-onboarder</h1>
+      <h1 className="">sowo-gv-onboarder</h1>
       <Scanner
         onResult={(text, result) => {
           setData(text);
