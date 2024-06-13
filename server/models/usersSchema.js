@@ -1,23 +1,27 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-  name: {
+  sowo_id: {
     type: String,
-    required: [true, "name is required"],
+    required: [true, "sowo_id is required"],
     unique: true,
     trim: true,
   },
-  author: {
+  name: {
     type: String,
-    required: [true, "author is required"],
+    required: [true, "name is required"],
   },
-  image_url: {
+  house: {
     type: String,
+    required: [true, "house is required"],
   },
-  tags: {
-    type: [String],
-    default: "NEW",
-  },
+  // image_url: {
+  //   type: String,
+  // },
+  // tags: {
+  //   type: [String],
+  //   default: "NEW",
+  // },
 });
 
 export default mongoose.model("User", userSchema);

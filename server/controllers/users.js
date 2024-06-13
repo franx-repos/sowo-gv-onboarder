@@ -24,10 +24,10 @@ export const getUserById = async (req, res, next) => {
 };
 
 export const addNewUser = async (req, res, next) => {
-  const { name, author, image_url } = req.body;
+  const { sowo_id, name, house } = req.body;
 
   try {
-    const newUser = new User({ name, author, image_url });
+    const newUser = new User({ sowo_id, name, house });
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
   } catch (error) {
@@ -37,16 +37,16 @@ export const addNewUser = async (req, res, next) => {
 
 export const updateUser = async (req, res, next) => {
   const { id } = req.params;
-  const { name, author, image_url } = req.body;
+  const { sowo_id, name, house } = req.body;
 
   try {
     const updatedUser = await User.findByIdAndUpdate(
       id,
-      { name, author, image_url },
+      { sowo_id, name, house },
       { new: true }
     );
     if (!updatedUser) {
-      throw { statusCode: 404, message: "Bok not found" };
+      throw { statusCode: 404, message: "User not found" };
     }
     res.json(updatedUser);
   } catch (error) {

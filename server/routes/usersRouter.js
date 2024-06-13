@@ -14,6 +14,6 @@ usersRouter
   .put(userController.updateUser)
   .delete(userController.deleteUser);
 
-usersRouter.patch("/:id", userController.addTagToUser);
+// usersRouter.patch("/:id", userController.addTagToUser);
 
 export default usersRouter;
