@@ -1,6 +1,6 @@
 import express from "express";
 import "./db/server.js";
-import usersRouter from "./routes/usersRouter.js";
+import booksRouter from "./routes/booksRouter.js";
 import { errorHandler } from "./middlewares/ErrorHandler.js";
 
 const app = express();
@@ -10,7 +10,7 @@ app.use(express.json());
 
 //ROUTES
 
-app.use("/users", usersRouter);
+app.use("/books", booksRouter);
 
 app.use(errorHandler);
 
