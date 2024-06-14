@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Scanner from "./Scanner";
+import MembersList from "./MembersList";
+import NavigationTop from "./NavigationTop";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
-  const [data, setData] = useState("");
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -18,17 +19,14 @@ const Home = () => {
     fetchUsers();
   }, []);
 
-  console.log(users);
+  // console.log(users);
+
   return (
     <>
-      <h1 className="">sowo-gv-onboarder</h1>
+      <NavigationTop />
+      <h1 className="text-3xl font-bold">sowo-gv-onboarder</h1>
       <Scanner />
-      <div>
-        {users &&
-          users.map((user) => {
-            <p>{user.name}</p>;
-          })}
-      </div>
+      <MembersList users={users} />
     </>
   );
 };
