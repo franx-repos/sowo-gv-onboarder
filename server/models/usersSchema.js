@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "house is required"],
   },
+  timeOfArrival: {
+    type: Date,
+  },
+
   // image_url: {
   //   type: String,
   // },

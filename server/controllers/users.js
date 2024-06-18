@@ -24,10 +24,10 @@ export const getUserById = async (req, res, next) => {
 };
 
 export const addNewUser = async (req, res, next) => {
-  const { sowo_id, name, house } = req.body;
+  const { sowo_id, name, house, timeOfArrival } = req.body;
 
   try {
-    const newUser = new User({ sowo_id, name, house });
+    const newUser = new User({ sowo_id, name, house, timeOfArrival });
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
   } catch (error) {
@@ -42,7 +42,7 @@ export const updateUser = async (req, res, next) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(
       id,
-      { sowo_id, name, house },
+      { sowo_id, name, house, timeOfArrival },
       { new: true }
     );
     if (!updatedUser) {
