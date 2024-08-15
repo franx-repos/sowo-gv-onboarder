@@ -8,7 +8,7 @@ const MembersList = ({ users }) => {
   };
 
   return (
-    <>
+    <div className="mt-10">
       <table className={tableStyle.table}>
         <thead className={tableStyle.thead}>
           <tr>
@@ -30,7 +30,7 @@ const MembersList = ({ users }) => {
             ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

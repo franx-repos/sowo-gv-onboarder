@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import axios from "axios";
 
-const Scanner = () => {
+const Scanner = ({ setScanSuccess }) => {
   const [scanResult, setScanResult] = useState(null);
 
   useEffect(() => {
@@ -17,8 +17,10 @@ const Scanner = () => {
     scanner.render(success, error);
 
     function success(result) {
-      setScanResult(result);
+      setScanResult(JSON.parse(result));
       sendScanResultToServer(result);
+      setScanSuccess(true);
+      setTimeout(() => setScanSuccess(false), 1500);
       scanner.stop().then(() => scanner.clear());
     }
 
@@ -47,11 +49,14 @@ const Scanner = () => {
 
   return (
     <>
-      <div id="qr-reader" className="mt-20"></div>
-      {scanResult ? (
-        <div>Success: {scanResult}</div>
-      ) : (
-        <div>Scan something!</div>
+      <div id="qr-reader"></div>
+
+      {scanResult && (
+        <div className="mt-4">
+          <p>Sowo-Id: {scanResult.sowo_id}</p>
+          <p>Name: {scanResult.name}</p>
+          <p>Haus: {scanResult.house}</p>
+        </div>
       )}
     </>
   );
