@@ -11,7 +11,7 @@ const Scanner = () => {
         width: 350,
         height: 350,
       },
-      fps: 2,
+      fps: 5,
     });
 
     scanner.render(success, error);
@@ -47,7 +47,7 @@ const Scanner = () => {
 
   return (
     <>
-      <div id="qr-reader"></div>
+      <div id="qr-reader" className="mt-20"></div>
       {scanResult ? (
         <div>Success: {scanResult}</div>
       ) : (
