@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   sowo_id: {
-    type: String,
+    type: Number,
     required: [true, "sowo_id is required"],
     unique: true,
     trim: true,
