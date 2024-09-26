@@ -49,7 +49,7 @@ const Scanner = ({ setScanSuccess }) => {
 
   return (
     <>
-      <div id="qr-reader"></div>
+      <div id="qr-reader" className=""></div>
 
       {scanResult && (
         <div className="">
