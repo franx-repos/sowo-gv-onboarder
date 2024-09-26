@@ -52,7 +52,7 @@ const Scanner = ({ setScanSuccess }) => {
       <div id="qr-reader"></div>
 
       {scanResult && (
-        <div className="mt-4">
+        <div className="">
           <p>Sowo-Id: {scanResult.sowo_id}</p>
           <p>Name: {scanResult.name}</p>
           <p>Haus: {scanResult.house}</p>
