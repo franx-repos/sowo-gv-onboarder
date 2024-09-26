@@ -5,7 +5,7 @@ const NavigationTop = ({ setCurrentLocation }) => {
 
   return (
     <>
-      <nav className="bg-pink-700 w-full">
+      <nav className="bg-pink-800 w-full">
         <div className="flex flex-wrap items-center justify-between p-2">
           <a href="#" className="flex items-center">
             <img
@@ -51,12 +51,12 @@ const NavigationTop = ({ setCurrentLocation }) => {
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky"
           >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-neutral-100 rounded-lg bg-pink-700 md:space-x-8 md:flex-row md:mt-0 md:border-0 dark:border-neutral-700">
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 md:border-0">
               <li>
                 <a
                   onClick={() => handleNavigation("scanner")}
                   href="#"
-                  className="block p-2 text-white text-2xl bg-pink-700 hover:bg-neutral-800 rounded-md"
+                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md"
                   aria-current="page"
                 >
                   <img
@@ -70,7 +70,7 @@ const NavigationTop = ({ setCurrentLocation }) => {
                 <a
                   onClick={() => handleNavigation("members")}
                   href="#"
-                  className="block p-2 text-white text-2xl bg-pink-700 hover:bg-neutral-800 rounded-md"
+                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md"
                 >
                   <img
                     src="./src/assets/list-icon.png"
