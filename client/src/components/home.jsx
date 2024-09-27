@@ -11,6 +11,7 @@ const Home = () => {
   const [members, setMembers] = useState([]);
   const [currentLocation, setCurrentLocation] = useState("scanner");
   const [scanSuccess, setScanSuccess] = useState(false);
+  // const [scanResult, setScanResult] = useState(null);
   const [hasQuorum, setHasQuorum] = useState(false);
 
   useEffect(() => {
@@ -71,7 +72,7 @@ const Home = () => {
           <p className="mb-3 text-white text-xl p-2 rounded-md bg-neutral-800">
             3/4 Mehrheit: {Math.round((members.length / 4) * 3)}
           </p>
-          <button className="bg-pink-700 hover:bg-pink-800 py-2 px-4 text-white hover:text-white  rounded inline-flex mt-auto justify-center">
+          <button className="bg-pink-700 hover:bg-pink-800 py-2 px-4 text-white hover:text-white rounded-md inline-flex mt-auto justify-center">
             Manuelle Eingabe
           </button>
         </div>
@@ -138,13 +139,16 @@ const Home = () => {
             </div>
           ) : (
             <div
-              className={`flex flex-col my-auto items-center p-5 rounded-lg ${
+              className={`flex my-auto mr-40 items-center p-5 rounded-lg ${
                 scanSuccess === true
                   ? "border-4 border-teal-700 pulse"
                   : "border-4 border-pink-700"
               }`}
             >
-              <Scanner setScanSuccess={setScanSuccess} />
+              <Scanner
+                setScanSuccess={setScanSuccess}
+                // setScanResult={setScanResult}
+              />
             </div>
           )}
         </div>

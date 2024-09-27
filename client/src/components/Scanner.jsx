@@ -49,15 +49,19 @@ const Scanner = ({ setScanSuccess }) => {
 
   return (
     <>
-      <div id="qr-reader" className=""></div>
+      <div id="qr-reader"></div>
 
-      {scanResult && (
-        <div className="">
-          <p>Sowo-Id: {scanResult.sowo_id}</p>
-          <p>Name: {scanResult.name}</p>
-          <p>Haus: {scanResult.house}</p>
-        </div>
-      )}
+      <div className="flex flex-col ml-5">
+        <p className="mb-3 text-white text-xl p-2 rounded-md bg-neutral-800">
+          Sowo-Id: {scanResult?.sowo_id}
+        </p>
+        <p className="mb-3 text-white text-xl p-2 rounded-md bg-neutral-800">
+          Name: {scanResult?.name}
+        </p>
+        <p className="mb-3 text-white text-xl p-2 rounded-md bg-neutral-800">
+          Haus: {scanResult?.house}
+        </p>
+      </div>
     </>
   );
 };

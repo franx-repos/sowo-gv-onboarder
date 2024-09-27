@@ -7,21 +7,13 @@ const NavigationTop = ({ setCurrentLocation }) => {
     <>
       <nav className="bg-pink-800 w-full">
         <div className="flex flex-wrap items-center justify-between p-2">
-          <a href="#" className="flex items-center">
-            <img
-              src="./src/assets/Sowo-Logo.png"
-              className="h-12 mr-3"
-              alt="Sowo Logo"
-            />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
-          </a>
+          <img
+            src="./src/assets/Sowo-Logo.png"
+            className="h-12 mr-3"
+            alt="Sowo Logo"
+          />
+
           <div className="flex md:order-2 space-x-3 md:space-x-0">
-            {/* <button
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Get started
-            </button> */}
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
@@ -55,8 +47,7 @@ const NavigationTop = ({ setCurrentLocation }) => {
               <li>
                 <a
                   onClick={() => handleNavigation("scanner")}
-                  href="#"
-                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md"
+                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
                   aria-current="page"
                 >
                   <img
@@ -69,8 +60,7 @@ const NavigationTop = ({ setCurrentLocation }) => {
               <li>
                 <a
                   onClick={() => handleNavigation("members")}
-                  href="#"
-                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md"
+                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
                 >
                   <img
                     src="./src/assets/list-icon.png"
@@ -79,22 +69,6 @@ const NavigationTop = ({ setCurrentLocation }) => {
                   />
                 </a>
               </li>
-              {/* <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-neutral-900 rounded hover:bg-neutral-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-neutral-700"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-neutral-900 rounded hover:bg-neutral-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-neutral-700"
-                >
-                  Contact
-                </a>
-              </li> */}
             </ul>
           </div>
         </div>

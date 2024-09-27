@@ -22,6 +22,13 @@ const MembersList = ({ members }) => {
     setSortedMembers(sortedArray);
   };
 
+  const tHeads = [
+    { key: "sowo_id", label: "Sowo-Nr." },
+    { key: "name", label: "Name" },
+    { key: "house", label: "Haus" },
+    { key: "timeOfArrival", label: "Ankunftszeit" },
+  ];
+
   return (
     <div className="flex mt-10">
       <button className={style.btn} onClick={() => setSortedMembers(members)}>
@@ -31,21 +38,15 @@ const MembersList = ({ members }) => {
       <table className={style.table}>
         <thead className={style.thead}>
           <tr>
-            <th className={style.th} onClick={() => sortMembers("sowo_id")}>
-              Sowo-Nr.
-            </th>
-            <th className={style.th} onClick={() => sortMembers("name")}>
-              Name
-            </th>
-            <th className={style.th} onClick={() => sortMembers("house")}>
-              Haus
-            </th>
-            <th
-              className={style.th}
-              onClick={() => sortMembers("timeOfArrival")}
-            >
-              Ankunftszeit
-            </th>
+            {tHeads.map((tHead) => (
+              <th
+                className={style.th}
+                key={tHead.key}
+                onClick={() => sortMembers(tHead.key)}
+              >
+                {tHead.label}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
