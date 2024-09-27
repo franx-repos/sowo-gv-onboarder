@@ -4,7 +4,7 @@ const MembersList = ({ members }) => {
   const style = {
     btn: "h-fit mr-5 bg-pink-700 hover:bg-pink-800 py-2 px-4 text-white hover:text-white rounded justify-center",
     table:
-      "table-auto border-collapse border border-neutral-500 bg-neutral-800 text-lg",
+      "table-auto w-full border-collapse border border-neutral-500 bg-neutral-800 text-lg",
     th: "w-1/2 border border-neutral-600 font-semibold p-3 text-neutral-200 text-left bg-pink-700 hover:bg-pink-800 cursor-pointer",
     td: "border border-neutral-700 p-3 text-neutral-300 text-left",
     p: "ml-3 text-white text-lg p-2",
