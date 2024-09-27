@@ -4,7 +4,7 @@ const MembersList = ({ members }) => {
   const style = {
     btn: "h-fit mr-5 bg-pink-700 hover:bg-pink-800 py-2 px-4 text-white hover:text-white rounded justify-center",
     table:
-      "table-auto border-collapse border border-neutral-500 bg-neutral-800 text-lg",
+      "table-auto w-full border-collapse border border-neutral-500 bg-neutral-800 text-lg",
     th: "w-1/2 border border-neutral-600 font-semibold p-3 text-neutral-200 text-left bg-pink-700 hover:bg-pink-800 cursor-pointer",
     td: "border border-neutral-700 p-3 text-neutral-300 text-left",
     p: "ml-3 text-white text-lg p-2",
@@ -22,6 +22,13 @@ const MembersList = ({ members }) => {
     setSortedMembers(sortedArray);
   };
 
+  const tHeads = [
+    { key: "sowo_id", label: "Sowo-Nr." },
+    { key: "name", label: "Name" },
+    { key: "house", label: "Haus" },
+    { key: "timeOfArrival", label: "Ankunftszeit" },
+  ];
+
   return (
     <div className="flex mt-10">
       <button className={style.btn} onClick={() => setSortedMembers(members)}>
@@ -31,21 +38,15 @@ const MembersList = ({ members }) => {
       <table className={style.table}>
         <thead className={style.thead}>
           <tr>
-            <th className={style.th} onClick={() => sortMembers("sowo_id")}>
-              Sowo-Nr.
-            </th>
-            <th className={style.th} onClick={() => sortMembers("name")}>
-              Name
-            </th>
-            <th className={style.th} onClick={() => sortMembers("house")}>
-              Haus
-            </th>
-            <th
-              className={style.th}
-              onClick={() => sortMembers("timeOfArrival")}
-            >
-              Ankunftszeit
-            </th>
+            {tHeads.map((tHead) => (
+              <th
+                className={style.th}
+                key={tHead.key}
+                onClick={() => sortMembers(tHead.key)}
+              >
+                {tHead.label}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
