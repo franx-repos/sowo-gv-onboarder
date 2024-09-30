@@ -1,18 +1,17 @@
-const NavigationTop = ({ setCurrentLocation }) => {
+const NavigationTop = ({ setCurrentLocation, currentDate }) => {
   const handleNavigation = (location) => {
     setCurrentLocation(location);
   };
 
   return (
     <>
-      <nav className="bg-pink-800 w-full">
-        <div className="flex flex-wrap items-center justify-between p-2">
-          <img
-            src="./src/assets/Sowo-Logo.png"
-            className="h-12 mr-3"
-            alt="Sowo Logo"
-          />
-
+      <nav className="flex bg-pink-800 w-full ">
+        <img
+          src="./src/assets/Sowo-Logo.png"
+          className="h-12 mt-4 ml-3"
+          alt="Sowo Logo"
+        />
+        <div className="flex w-full flex-wrap items-center justify-center p-2">
           <div className="flex md:order-2 space-x-3 md:space-x-0">
             <button
               data-collapse-toggle="navbar-sticky"
@@ -40,7 +39,7 @@ const NavigationTop = ({ setCurrentLocation }) => {
             </button>
           </div>
           <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            className="items-center justify-center hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky"
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 md:border-0">
@@ -72,6 +71,9 @@ const NavigationTop = ({ setCurrentLocation }) => {
             </ul>
           </div>
         </div>
+        <p className="text-white text-lg ml-auto h-fit self-center p-2 rounded-md bg-neutral-800">
+          {currentDate}
+        </p>
       </nav>
     </>
   );
