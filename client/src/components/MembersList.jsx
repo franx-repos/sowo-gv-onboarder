@@ -24,7 +24,8 @@ const MembersList = ({ members }) => {
 
   const tHeads = [
     { key: "sowo_id", label: "Sowo-Nr." },
-    { key: "name", label: "Name" },
+    { key: "firstName", label: "Vorname" },
+    { key: "lastName", label: "Nachname" },
     { key: "house", label: "Haus" },
     { key: "timeOfArrival", label: "Ankunftszeit" },
   ];
@@ -54,7 +55,8 @@ const MembersList = ({ members }) => {
             sortedMembers.map((sMember) => (
               <tr key={sMember._id}>
                 <td className={style.td}>{sMember.sowo_id}</td>
-                <td className={style.td}>{sMember.name}</td>
+                <td className={style.td}>{sMember.firstName}</td>
+                <td className={style.td}>{sMember.lastName}</td>
                 <td className={style.td}>{sMember.house}</td>
                 <td className={style.td}>{sMember.timeOfArrival}</td>
               </tr>
