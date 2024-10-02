@@ -4,6 +4,7 @@ import MembersList from "./MembersList";
 import NavigationTop from "./NavigationTop";
 import { CSVLink } from "react-csv";
 import Sidebar from "./Sidebar";
+import ManualInput from "./ManualInput";
 import MailIcon from "../assets/MailIcon";
 import DownloadIcon from "../assets/DownloadIcon";
 /*https://www.npmjs.com/package/react-csv */
@@ -27,27 +28,28 @@ const Home = () => {
     second: "2-digit",
   });
 
+  const addMember = (newMember) => {
+    const isDuplicate = members.some(
+      (member) => member.sowo_id === newMember.sowo_id
+    );
+    if (!isDuplicate) {
+      setMembers((prevMembers) => [...prevMembers, newMember]);
+    } else {
+      console.log("Duplicate member:", newMember.sowo_id);
+    }
+  };
+
   useEffect(() => {
     if (scanResult) {
-      const isDuplicate = members.some(
-        (member) => member.sowo_id === scanResult.sowo_id
-      );
-      if (!isDuplicate) {
-        setMembers((prevMembers) => [
-          ...prevMembers,
-          {
-            sowo_id: scanResult.sowo_id,
-            firstName: scanResult.firstName,
-            lastName: scanResult.lastName,
-            house: scanResult.house,
-            timeOfArrival: formattedTime,
-          },
-        ]);
-      } else {
-        console.log("Duplicate scan detected for sowo_id:", scanResult.sowo_id);
-      }
+      addMember({
+        sowo_id: scanResult.sowo_id,
+        firstName: scanResult.firstName,
+        lastName: scanResult.lastName,
+        house: scanResult.house,
+        timeOfArrival: formattedTime,
+      });
     }
-  }, [scanResult, members]);
+  }, [scanResult]);
 
   const style = {
     btn: "bg-pink-700 hover:bg-pink-800 m-4 py-2 px-4 text-white hover:text-white  rounded inline-flex items-center",
@@ -62,7 +64,6 @@ const Home = () => {
     { label: "Ankunftszeit", key: "timeOfArrival" },
   ];
 
-  console.log(members);
   return (
     <div className="flex flex-col w-screen h-screen bg-pink-800 px-5 pb-5">
       <NavigationTop
@@ -72,26 +73,7 @@ const Home = () => {
       <div className="flex h-full overflow-x-hidden">
         <Sidebar membersCount={members.length} />
         <div className="flex flex-col w-full items-center overflow-x-hidden bg-neutral-900 rounded-e-3xl">
-          {currentLocation === "members" ? (
-            <div className="flex flex-col items-center">
-              <MembersList members={members} />
-              <div className="flex w-full p-5 justify-evenly">
-                <CSVLink
-                  data={members}
-                  headers={headers}
-                  filename={`sowo-gv-${formattedDate}`}
-                  className={style.btn}
-                >
-                  <DownloadIcon />
-                  CSV speichern
-                </CSVLink>
-                <button className={style.btn}>
-                  <MailIcon />
-                  CSV mailen
-                </button>
-              </div>
-            </div>
-          ) : (
+          {currentLocation === "scanner" && (
             <div className="flex my-auto">
               <div
                 className={`p-5 rounded-lg ${
@@ -113,6 +95,28 @@ const Home = () => {
               </div>
             </div>
           )}
+          {currentLocation === "members" && (
+            <div className="flex flex-col items-center">
+              <MembersList members={members} />
+              <div className="flex w-full p-5 justify-evenly">
+                <CSVLink
+                  data={members}
+                  headers={headers}
+                  filename={`sowo-gv-${formattedDate}`}
+                  className={style.btn}
+                >
+                  <DownloadIcon />
+                  CSV speichern
+                </CSVLink>
+                <button className={style.btn}>
+                  <MailIcon />
+                  CSV mailen
+                </button>
+              </div>
+            </div>
+          )}
+
+          {currentLocation === "form" && <ManualInput addMember={addMember} />}
         </div>
       </div>
     </div>

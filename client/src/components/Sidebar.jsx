@@ -2,11 +2,8 @@ import { useState, useEffect } from "react";
 
 function Sidebar({ membersCount }) {
   const [totalMembers, setTotalMembers] = useState(0);
-  const [hasQuorum, setHasQuorum] = useState(false);
-
-  useEffect(() => {
-    setHasQuorum(membersCount > totalMembers / 2);
-  }, [totalMembers, membersCount]);
+  const hasQuorum = membersCount > totalMembers / 2;
+  const majorityThreeQuarters = Math.round((totalMembers / 4) * 3);
 
   const style = {
     p: "mb-3 text-white text-xl p-2 rounded-md bg-neutral-800",
@@ -22,7 +19,7 @@ function Sidebar({ membersCount }) {
           insgesamt:
         </p>
         <input
-          onChange={(e) => setTotalMembers(e.target.value)}
+          onChange={(e) => setTotalMembers(Number(e.target.value))}
           value={totalMembers}
           type="number"
           min={0}
@@ -34,15 +31,12 @@ function Sidebar({ membersCount }) {
       <p className={style.p}>anwesend: {membersCount}</p>
       <p
         className={`mb-3 text-white text-xl p-2 rounded-md ${
-          hasQuorum === true ? "bg-green-500" : "bg-red-500"
+          hasQuorum ? "bg-green-500" : "bg-red-500"
         }`}
       >
-        Quorum: {hasQuorum === true ? "ja" : "nein"}
+        Quorum: {hasQuorum ? "ja" : "nein"}
       </p>
-      <p className={style.p}>
-        3/4 Mehrheit: {Math.round((membersCount / 4) * 3)}
-      </p>
-      <button className={style.btn}>Manuelle Eingabe</button>
+      <p className={style.p}>3/4 Mehrheit: {majorityThreeQuarters}</p>
     </div>
   );
 }

@@ -68,6 +68,18 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
                   />
                 </a>
               </li>
+              <li>
+                <a
+                  onClick={() => handleNavigation("form")}
+                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
+                >
+                  <img
+                    src="./src/assets/form-icon.png"
+                    alt="input form"
+                    className="h-12"
+                  />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
