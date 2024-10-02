@@ -53,7 +53,7 @@ const MembersList = ({ members }) => {
         <tbody>
           {sortedMembers &&
             sortedMembers.map((sMember) => (
-              <tr key={sMember._id}>
+              <tr key={sMember.sowo_id}>
                 <td className={style.td}>{sMember.sowo_id}</td>
                 <td className={style.td}>{sMember.firstName}</td>
                 <td className={style.td}>{sMember.lastName}</td>
@@ -63,7 +63,6 @@ const MembersList = ({ members }) => {
             ))}
         </tbody>
       </table>
-      <p className={style.p}>&#8592; zum Sortieren klicken</p>
     </div>
   );
 };
