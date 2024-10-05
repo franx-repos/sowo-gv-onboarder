@@ -3,6 +3,12 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
     setCurrentLocation(location);
   };
 
+  const menuItems = [
+    { name: "scanner", img: "./src/assets/scan-icon.png" },
+    { name: "members", img: "./src/assets/list-icon.png" },
+    { name: "form", img: "./src/assets/form-icon.png" },
+  ];
+
   return (
     <>
       <nav className="flex bg-pink-800 w-full ">
@@ -43,43 +49,16 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
             id="navbar-sticky"
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 md:border-0">
-              <li>
-                <a
-                  onClick={() => handleNavigation("scanner")}
-                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
-                  aria-current="page"
-                >
-                  <img
-                    src="./src/assets/scan-icon.png"
-                    alt="scanner"
-                    className="h-12"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={() => handleNavigation("members")}
-                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
-                >
-                  <img
-                    src="./src/assets/list-icon.png"
-                    alt="members list"
-                    className="h-12"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={() => handleNavigation("form")}
-                  className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
-                >
-                  <img
-                    src="./src/assets/form-icon.png"
-                    alt="input form"
-                    className="h-12"
-                  />
-                </a>
-              </li>
+              {menuItems.map((item) => (
+                <li>
+                  <a
+                    onClick={() => handleNavigation(item.name)}
+                    className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
+                  >
+                    <img src={item.img} alt={item.name} className="h-12" />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
