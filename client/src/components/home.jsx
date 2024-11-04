@@ -59,9 +59,9 @@ const Home = () => {
         setCurrentLocation={setCurrentLocation}
         currentDate={formattedDate}
       />
-      <div className="flex h-full overflow-x-hidden">
+      <div className="flex flex-col lg:flex-row h-full overflow-x-hidden">
         <Sidebar membersCount={members.length} />
-        <div className="flex flex-col w-full items-center overflow-x-hidden bg-neutral-900 rounded-e-3xl">
+        <div className="flex flex-col order-0 lg:order-1 h-full w-full items-center overflow-x-hidden bg-neutral-900 rounded-t-3xl lg:rounded-tl-none lg:rounded-e-3xl">
           {currentLocation === "scanner" && (
             <Scanner scanResult={scanResult} setScanResult={setScanResult} />
           )}

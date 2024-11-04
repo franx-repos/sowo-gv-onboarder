@@ -33,9 +33,9 @@ const Scanner = ({ scanResult, setScanResult }) => {
   }, []);
 
   return (
-    <div className="flex my-auto">
+    <div className="flex flex-col lg:flex-row my-auto">
       <div
-        className={`p-5 rounded-lg ${
+        className={`p-2 m-2 lg:p-5 rounded-lg ${
           scanSuccess === true
             ? "border-4 border-teal-700 pulse"
             : "border-4 border-pink-700"
@@ -43,7 +43,7 @@ const Scanner = ({ scanResult, setScanResult }) => {
       >
         <div id="qr-reader"></div>
       </div>
-      <div className="flex flex-col ml-5">
+      <div className="flex flex-col mx-2 mt-2 lg:mx-5">
         <p className={style.p}>Sowo-Id: {scanResult?.sowo_id}</p>
         <p className={style.p}>Vorname: {scanResult?.firstName}</p>
         <p className={style.p}>Nachname: {scanResult?.lastName}</p>
