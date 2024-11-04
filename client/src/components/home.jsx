@@ -6,7 +6,6 @@ import { CSVLink } from "react-csv";
 import Sidebar from "./Sidebar";
 import ManualInput from "./ManualInput";
 import useDateTime from "../hooks/useDateTime";
-import MailIcon from "../assets/MailIcon";
 import DownloadIcon from "../assets/DownloadIcon";
 /*https://www.npmjs.com/package/react-csv */
 
@@ -78,10 +77,6 @@ const Home = () => {
                   <DownloadIcon />
                   CSV speichern
                 </CSVLink>
-                <button className={style.btn}>
-                  <MailIcon />
-                  CSV mailen
-                </button>
               </div>
             </div>
           )}

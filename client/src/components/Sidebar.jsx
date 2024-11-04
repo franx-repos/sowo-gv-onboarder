@@ -22,9 +22,8 @@ function Sidebar({ membersCount }) {
           onChange={(e) => setTotalMembers(Number(e.target.value))}
           value={totalMembers}
           type="number"
-          // min={0}
+          min={0}
           className={style.input}
-          // placeholder="Sowo members"
         />
       </div>
       <p className={style.p}>anwesend: {membersCount}</p>
