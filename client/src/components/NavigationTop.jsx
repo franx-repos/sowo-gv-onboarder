@@ -1,6 +1,15 @@
+import { useState } from "react";
+
 const NavigationTop = ({ setCurrentLocation, currentDate }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const handleNavigation = (location) => {
     setCurrentLocation(location);
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const menuItems = [
@@ -22,9 +31,10 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
+              onClick={toggleMenu}
               className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-neutral-500 rounded-lg md:hidden hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:ring-neutral-600"
               aria-controls="navbar-sticky"
-              aria-expanded="false"
+              aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -35,7 +45,7 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
                 viewBox="0 0 17 14"
               >
                 <path
-                  stroke="currentColor"
+                  stroke="white"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
@@ -45,8 +55,10 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
             </button>
           </div>
           <div
-            className="items-center justify-center hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky"
+            className={`absolute md:relative lg:relative top-0 mt-12 md:mt-0 lg:mt-0 flex items-center justify-center ${
+              isMenuOpen ? "flex" : "hidden"
+            } w-fit md:flex md:w-auto md:order-1 bg-pink-900 md:bg-transparent lg:bg-transparent z-50`}
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 md:border-0">
               {menuItems.map((item) => (
@@ -56,6 +68,7 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
                     className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
                   >
                     <img src={item.img} alt={item.name} className="h-12" />
+                    {/* {item.name} */}
                   </a>
                 </li>
               ))}
