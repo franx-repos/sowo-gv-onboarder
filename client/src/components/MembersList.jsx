@@ -32,38 +32,40 @@ const MembersList = ({ members }) => {
 
   return (
     <div className="flex flex-col mt-2 lg:mt-10">
-      {/* <button className={style.btn} onClick={() => setSortedMembers(members)}>
+      <div className="hidden md:flex lg:flex flex-col space-y-4">
+        {/* <button className={style.btn} onClick={() => setSortedMembers(members)}>
         Reset
       </button> */}
 
-      <table className={style.table}>
-        <thead>
-          <tr>
-            {tHeads.map((tHead) => (
-              <th
-                className={style.th}
-                key={tHead.key}
-                onClick={() => sortMembers(tHead.key)}
-              >
-                {tHead.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {sortedMembers &&
-            sortedMembers.map((sMember) => (
-              <tr key={sMember.sowo_id}>
-                <td className={style.td}>{sMember.sowo_id}</td>
-                <td className={style.td}>{sMember.firstName}</td>
-                <td className={style.td}>{sMember.lastName}</td>
-                <td className={style.td}>{sMember.house}</td>
-                <td className={style.td}>{sMember.timeOfArrival}</td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-      <div className="flex flex-col space-y-4 sm:hidden">
+        <table className={style.table}>
+          <thead>
+            <tr>
+              {tHeads.map((tHead) => (
+                <th
+                  className={style.th}
+                  key={tHead.key}
+                  onClick={() => sortMembers(tHead.key)}
+                >
+                  {tHead.label}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sortedMembers &&
+              sortedMembers.map((sMember) => (
+                <tr key={sMember.sowo_id}>
+                  <td className={style.td}>{sMember.sowo_id}</td>
+                  <td className={style.td}>{sMember.firstName}</td>
+                  <td className={style.td}>{sMember.lastName}</td>
+                  <td className={style.td}>{sMember.house}</td>
+                  <td className={style.td}>{sMember.timeOfArrival}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="flex md:hidden lg:hidden w-full flex-col space-y-4">
         {sortedMembers &&
           sortedMembers.map((sMember) => (
             <div key={sMember.sowo_id} className="bg-neutral-800 p-4 rounded">
