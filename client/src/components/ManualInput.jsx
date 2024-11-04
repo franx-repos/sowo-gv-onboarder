@@ -62,13 +62,13 @@ const ManualInput = ({ addMember }) => {
 
   return (
     <div
-      className={`my-auto p-5 rounded-lg ${
+      className={`w-1/3 my-auto p-5 rounded-lg ${
         formSuccess === true
           ? "border-4 border-teal-700 pulse"
           : "border-4 border-pink-700"
       }`}
     >
-      <form onSubmit={handleSubmit} className="flex flex-col  p-5 rounded-lg">
+      <form onSubmit={handleSubmit} className="flex flex-col p-5 rounded-lg">
         {inputFields.map(({ label, name, placeholder, type = "text" }) => (
           <div key={name} className="flex flex-col mb-3">
             <label className="text-white mb-2">{label}:</label>
