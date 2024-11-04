@@ -66,7 +66,7 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 md:border-0">
               {menuItems.map((item) => (
-                <li>
+                <li key={`${item.name}-item`}>
                   <a
                     onClick={() => handleNavigation(item.name)}
                     className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
