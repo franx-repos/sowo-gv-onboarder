@@ -5,7 +5,7 @@ const Scanner = ({ scanResult, setScanResult }) => {
   const [scanSuccess, setScanSuccess] = useState(false);
 
   const style = {
-    p: "mb-3 text-white text-xl p-2 rounded-md bg-neutral-800",
+    p: "w-[45%] lg:w-full lg:mb-3 text-white text-center text-md lg:text-xl lg:text-left p-2 rounded-md bg-neutral-800",
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Scanner = ({ scanResult, setScanResult }) => {
       >
         <div id="qr-reader"></div>
       </div>
-      <div className="flex flex-col mx-2 mt-2 lg:mx-5">
+      <div className="flex flex-row lg:flex-col flex-wrap mx-auto mt-2 lg:mx-5 gap-2 justify-center">
         <p className={style.p}>Sowo-Id: {scanResult?.sowo_id}</p>
         <p className={style.p}>Vorname: {scanResult?.firstName}</p>
         <p className={style.p}>Nachname: {scanResult?.lastName}</p>

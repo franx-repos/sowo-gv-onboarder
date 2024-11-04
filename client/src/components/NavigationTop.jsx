@@ -14,10 +14,10 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
       <nav className="flex bg-pink-800 w-full ">
         <img
           src="./src/assets/Sowo-Logo.png"
-          className="h-12 mt-4 ml-3"
+          className="h-8 lg:h-12 my-2 lg:ml-3"
           alt="Sowo Logo"
         />
-        <div className="flex w-full flex-wrap items-center justify-center p-2">
+        <div className="flex w-full flex-wrap items-center justify-center">
           <div className="flex md:order-2 space-x-3 md:space-x-0">
             <button
               data-collapse-toggle="navbar-sticky"
@@ -62,7 +62,7 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
             </ul>
           </div>
         </div>
-        <p className="text-white text-lg ml-auto h-fit self-center p-2 rounded-md bg-neutral-800">
+        <p className="text-neutral-800 text-sm lg:text-lg font-semibold ml-auto h-fit self-center p-2 rounded-md ">
           {currentDate}
         </p>
       </nav>
