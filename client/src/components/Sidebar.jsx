@@ -6,16 +6,16 @@ function Sidebar({ membersCount }) {
   const majorityThreeQuarters = Math.round((totalMembers / 4) * 3);
 
   const style = {
-    p: "mb-3 text-white text-xl p-2 rounded-md bg-neutral-800",
+    p: "lg:mb-3 text-white text-xl p-2 rounded-md bg-neutral-800",
     btn: "bg-pink-700 hover:bg-pink-800 py-2 px-4 text-white hover:text-white rounded-md inline-flex mt-auto justify-center",
     input:
-      "w-20 text-xl rounded-e-md mb-3 p-2 bg-neutral-800  placeholder-neutral-400 text-white focus:outline-none focus:ring focus:ring-pink-700 focus:rounded-md",
+      "w-20 text-xl rounded-e-md lg:mb-3 p-2 bg-neutral-800  placeholder-neutral-400 text-white focus:outline-none focus:ring focus:ring-pink-700 focus:rounded-md",
   };
 
   return (
-    <div className="flex h-full bg-neutral-950 flex-col p-5 rounded-s-3xl border-r-4 border-pink-800">
+    <div className="flex lg:flex-col flex-wrap justify-stretch lg:justify-normal order-1 lg:order-0 h-1/6 lg:h-full bg-neutral-950 p-2 lg:p-5 rounded-b-3xl lg:rounded-s-3xl lg:rounded-br-none lg:border-r-4 border-pink-800">
       <div className="flex">
-        <p className="mb-3 text-white text-xl p-2 rounded-s-md bg-neutral-800">
+        <p className="lg:mb-3 text-white text-xl p-2 rounded-s-md bg-neutral-800">
           insgesamt:
         </p>
         <input
@@ -27,10 +27,9 @@ function Sidebar({ membersCount }) {
           // placeholder="Sowo members"
         />
       </div>
-
       <p className={style.p}>anwesend: {membersCount}</p>
       <p
-        className={`mb-3 text-white text-xl p-2 rounded-md ${
+        className={`lg:mb-3 text-white text-xl p-2 rounded-md ${
           hasQuorum ? "bg-teal-500" : "bg-red-500"
         }`}
       >
