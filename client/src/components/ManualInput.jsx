@@ -62,7 +62,7 @@ const ManualInput = ({ addMember }) => {
 
   return (
     <div
-      className={`w-1/3 my-auto p-5 rounded-lg ${
+      className={`w-5/6 md:w-4/5 lg:w-1/3 my-auto m-3 lg:p-5 rounded-lg ${
         formSuccess === true
           ? "border-4 border-teal-700 pulse"
           : "border-4 border-pink-700"

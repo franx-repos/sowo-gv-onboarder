@@ -68,7 +68,7 @@ const Home = () => {
           {currentLocation === "members" && (
             <div className="flex flex-col items-center">
               <MembersList members={members} />
-              <div className="flex w-full p-5 justify-evenly">
+              <div className="flex flex-col lg:flex-row w-full p2 lg:p-5 justify-evenly">
                 <CSVLink
                   data={members}
                   headers={headers}
