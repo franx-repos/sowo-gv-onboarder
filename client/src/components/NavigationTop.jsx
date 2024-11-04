@@ -1,4 +1,8 @@
 import { useState } from "react";
+import SowoLogo from "../assets/Sowo-Logo.png";
+import FormIcon from "../assets/form-icon.png";
+import ListIcon from "../assets/list-icon.png";
+import ScanIcon from "../assets/scan-icon.png";
 
 const NavigationTop = ({ setCurrentLocation, currentDate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,16 +17,16 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
   };
 
   const menuItems = [
-    { name: "scanner", img: "./src/assets/scan-icon.png" },
-    { name: "members", img: "./src/assets/list-icon.png" },
-    { name: "form", img: "./src/assets/form-icon.png" },
+    { name: "scanner", img: ScanIcon },
+    { name: "members", img: ListIcon },
+    { name: "form", img: FormIcon },
   ];
 
   return (
     <>
       <nav className="flex bg-pink-800 w-full ">
         <img
-          src="./src/assets/Sowo-Logo.png"
+          src={SowoLogo}
           className="h-8 lg:h-12 my-2 lg:ml-3"
           alt="Sowo Logo"
         />
