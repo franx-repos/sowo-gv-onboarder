@@ -13,7 +13,7 @@ function Sidebar({ membersCount }) {
   };
 
   return (
-    <div className="flex flex-row lg:flex-col flex-wrap order-1 lg:order-0 h-1/6 lg:h-full bg-neutral-950 justify-center p-2 lg:p-5 rounded-b-lg lg:rounded-s-3xl lg:rounded-br-none lg:border-r-4 border-pink-800 gap-2">
+    <div className="flex lg:w-72 flex-row lg:flex-col flex-wrap order-1 lg:order-0 h-1/6 lg:h-full bg-neutral-950 justify-center p-2 lg:p-5 rounded-b-lg lg:rounded-s-3xl lg:rounded-br-none lg:border-r-4 border-pink-800 gap-2">
       <div className="flex w-[48%] lg:w-full">
         <p className="lg:mb-3 w-2/3 text-white text-md lg:text-xl p-2 rounded-s-md bg-neutral-800">
           insgesamt:
