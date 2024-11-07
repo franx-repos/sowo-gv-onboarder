@@ -44,6 +44,7 @@ export default defineConfig({
     react(),
     VitePWA({
       ...manifestForPlugIn,
+      registerType: "autoUpdate",
       workbox: {
         cleanupOutdatedCaches: true,
         sourcemap: true,
