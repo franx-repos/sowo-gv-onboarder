@@ -4,35 +4,29 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugIn = {
   registerType: "prompt",
-  includeAssests: ["favicon.ico", "apple-touc-icon.png", "masked-icon.svg"],
+  includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
   manifest: {
     name: "Sowo-GV-Onboarder",
     short_name: "GV-Onboarder",
     description: "App to speed up onboarding processes.",
     icons: [
       {
-        src: "/android-chrome-192x192.png",
+        src: "/Sowo-Logo_192x192.png",
         sizes: "192x192",
         type: "image/png",
-        purpose: "favicon",
-      },
-      {
-        src: "//Sowo-Logo_512x512.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "favicon",
-      },
-      {
-        src: "/Sowo-Logo_180x180.png",
-        sizes: "180x180",
-        type: "image/png",
-        purpose: "apple touch icon",
+        purpose: "any maskable",
       },
       {
         src: "/Sowo-Logo_512x512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "any maskable",
+      },
+      {
+        src: "/Sowo-Logo_180x180.png",
+        sizes: "180x180",
+        type: "image/png",
+        purpose: "apple-touch-icon",
       },
     ],
     theme_color: "#171717",
@@ -45,5 +39,17 @@ const manifestForPlugIn = {
 };
 
 export default defineConfig({
-  plugins: [react(), VitePWA(manifestForPlugIn)],
+  plugins: [
+    react(),
+    VitePWA({
+      ...manifestForPlugIn,
+      workbox: {
+        cleanupOutdatedCaches: true,
+        sourcemap: true,
+      },
+      devOptions: {
+        enabled: true,
+      },
+    }),
+  ],
 });
