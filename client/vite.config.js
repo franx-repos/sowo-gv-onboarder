@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugIn = {
-  registerType: "prompt",
+  registerType: "autoUpdate",
   includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
   manifest: {
     name: "Sowo-GV-Onboarder",
@@ -44,7 +44,6 @@ export default defineConfig({
     react(),
     VitePWA({
       ...manifestForPlugIn,
-      registerType: "autoUpdate",
       workbox: {
         cleanupOutdatedCaches: true,
         sourcemap: true,
