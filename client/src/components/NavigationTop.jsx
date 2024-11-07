@@ -27,7 +27,7 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
       <nav className="flex bg-pink-800 w-full ">
         <img
           src={SowoLogo}
-          className="h-8 lg:h-12 my-2 lg:ml-3"
+          className="h-8 md:h-12 lg:h-12 my-2 lg:ml-3"
           alt="Sowo Logo"
         />
         <div className="flex w-full flex-wrap items-center justify-center">
@@ -62,14 +62,14 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
             id="navbar-sticky"
             className={`absolute md:relative lg:relative top-0 mt-12 md:mt-0 lg:mt-0 flex items-center justify-center ${
               isMenuOpen ? "flex" : "hidden"
-            } w-fit md:flex md:w-auto md:order-1 bg-pink-900 md:bg-transparent lg:bg-transparent z-50`}
+            } w-fit md:flex md:w-auto md:order-1 bg-pink-800 md:bg-transparent lg:bg-transparent z-50 rounded-b-lg border-t-4 md:border-t-0 lg:border-t-0 border-neutral-900`}
           >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 md:border-0">
+            <ul className="flex font-medium md:space-x-8 md:flex-row md:mt-0 md:border-0">
               {menuItems.map((item) => (
                 <li key={`${item.name}-item`}>
                   <a
                     onClick={() => handleNavigation(item.name)}
-                    className="block p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
+                    className="block p-4 md:p-2 lg:p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
                   >
                     <img src={item.img} alt={item.name} className="h-12" />
                     {/* {item.name} */}
@@ -80,13 +80,13 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
           </div>
         </div>
 
-        <label className="inline-flex items-center cursor-pointer">
+        {/* <label className="inline-flex items-center cursor-pointer">
           <input type="checkbox" value="" className="sr-only peer" />
           <div className="relative w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all border-gray-600 peer-checked:bg-blue-600"></div>
           <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
             online
           </span>
-        </label>
+        </label> */}
 
         <p className="text-neutral-800 text-sm lg:text-lg font-semibold ml-auto h-fit self-center p-2 rounded-md ">
           {currentDate}
