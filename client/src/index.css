@@ -55,6 +55,9 @@ body {
 #html5-qrcode-select-camera {
   padding: 0.35rem;
   border-radius: 0.25rem;
+  background-color: #9d174d;
+  color: #171717;
+  font-weight: 600;
 }
 
 /* pulse animation */
