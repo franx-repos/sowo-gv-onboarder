@@ -2,30 +2,18 @@ import { useState, useEffect } from "react";
 import Scanner from "./Scanner";
 import MembersList from "./MembersList";
 import NavigationTop from "./NavigationTop";
-import { CSVLink } from "react-csv";
 import Sidebar from "./Sidebar";
 import ManualInput from "./ManualInput";
+import CsvDownloadButton from "./CsvDownloadButton";
 import useDateTime from "../hooks/useDateTime";
-import DownloadIcon from "../assets/DownloadIcon";
+import useMembers from "../hooks/useMembers";
 /*https://www.npmjs.com/package/react-csv */
 
 const Home = () => {
-  const [members, setMembers] = useState([]);
+  const { members, addMember } = useMembers();
   const [currentLocation, setCurrentLocation] = useState("scanner");
-
   const [scanResult, setScanResult] = useState(null);
   const { date: formattedDate, time: formattedTime } = useDateTime();
-
-  const addMember = (newMember) => {
-    const isDuplicate = members.some(
-      (member) => member.sowo_id === newMember.sowo_id
-    );
-    if (!isDuplicate) {
-      setMembers((prevMembers) => [...prevMembers, newMember]);
-    } else {
-      console.log("Duplicate member:", newMember.sowo_id);
-    }
-  };
 
   useEffect(() => {
     if (scanResult) {
@@ -38,19 +26,6 @@ const Home = () => {
       });
     }
   }, [scanResult]);
-
-  const style = {
-    btn: "bg-neutral-950 border-2 border-pink-700 hover:bg-pink-800 m-4 py-2 px-4 text-white hover:text-white rounded inline-flex items-center",
-    p: "mb-3 text-white text-xl p-2 rounded-md bg-neutral-800",
-  };
-
-  const headers = [
-    { label: "Sowo ID", key: "sowo_id" },
-    { label: "Vorname", key: "firstName" },
-    { label: "Nachname", key: "lastName" },
-    { label: "Haus", key: "house" },
-    { label: "Ankunftszeit", key: "timeOfArrival" },
-  ];
 
   return (
     <div className="flex flex-col w-screen h-screen bg-pink-800 px-2 lg:px-5  pb-2 lg:pb-5">
@@ -68,15 +43,10 @@ const Home = () => {
             <div className="flex flex-col items-center">
               <MembersList members={members} />
               <div className="flex flex-col lg:flex-row w-full p2 lg:p-5 justify-evenly">
-                <CSVLink
-                  data={members}
-                  headers={headers}
-                  filename={`sowo-gv-${formattedDate}`}
-                  className={style.btn}
-                >
-                  <DownloadIcon />
-                  CSV speichern
-                </CSVLink>
+                <CsvDownloadButton
+                  members={members}
+                  formattedDate={formattedDate}
+                />
               </div>
             </div>
           )}
