@@ -31,7 +31,7 @@ const manifestForPlugIn = {
     ],
     theme_color: "#171717",
     background_color: "#171717",
-    display: "fullscreen",
+    display: "minimal-ui",
     scope: "/",
     start_url: "/",
     // orientation: "portrait",
