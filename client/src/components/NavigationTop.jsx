@@ -36,7 +36,7 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
               data-collapse-toggle="navbar-sticky"
               type="button"
               onClick={toggleMenu}
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-neutral-500 rounded-lg md:hidden hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:ring-neutral-600"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm  rounded-lg md:hidden focus:outline-none focus:ring-2  text-neutral-400 hover:bg-neutral-700 focus:ring-neutral-600"
               aria-controls="navbar-sticky"
               aria-expanded={isMenuOpen}
             >
@@ -69,7 +69,7 @@ const NavigationTop = ({ setCurrentLocation, currentDate }) => {
                 <li key={`${item.name}-item`}>
                   <a
                     onClick={() => handleNavigation(item.name)}
-                    className="block p-4 md:p-2 lg:p-2 text-white text-2xl hover:bg-neutral-800 rounded-md cursor-pointer"
+                    className="block p-4 md:p-2 lg:p-2 text-white text-2xl hover:bg-neutral-800 active:bg-neutral-800 rounded-md cursor-pointer"
                   >
                     <img src={item.img} alt={item.name} className="h-12" />
                     {/* {item.name} */}

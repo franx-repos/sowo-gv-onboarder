@@ -7,7 +7,6 @@ import ManualInput from "./ManualInput";
 import CsvDownloadButton from "./CsvDownloadButton";
 import useDateTime from "../hooks/useDateTime";
 import useMembers from "../hooks/useMembers";
-/*https://www.npmjs.com/package/react-csv */
 
 const Home = () => {
   const { members, addMember } = useMembers();
@@ -27,22 +26,31 @@ const Home = () => {
     }
   }, [scanResult]);
 
+  const style = {
+    wrapper:
+      "flex flex-col w-screen h-screen bg-pink-800 px-2 lg:px-5  pb-2 lg:pb-5",
+    innerWrapper: "flex flex-col lg:flex-row h-full overflow-x-hidden",
+    contentWrapper:
+      "flex flex-col order-0 lg:order-1 h-full w-full items-center overflow-x-hidden bg-neutral-900 rounded-t-lg lg:rounded-tl-none lg:rounded-e-3xl",
+    btnSection: "flex flex-col lg:flex-row w-full p2 lg:p-5 justify-evenly",
+  };
+
   return (
-    <div className="flex flex-col w-screen h-screen bg-pink-800 px-2 lg:px-5  pb-2 lg:pb-5">
+    <div className={style.wrapper}>
       <NavigationTop
         setCurrentLocation={setCurrentLocation}
         currentDate={formattedDate}
       />
-      <div className="flex flex-col lg:flex-row h-full overflow-x-hidden">
+      <div className={style.innerWrapper}>
         <Sidebar membersCount={members.length} />
-        <div className="flex flex-col order-0 lg:order-1 h-full w-full items-center overflow-x-hidden bg-neutral-900 rounded-t-lg lg:rounded-tl-none lg:rounded-e-3xl">
+        <div className={style.contentWrapper}>
           {currentLocation === "scanner" && (
             <Scanner scanResult={scanResult} setScanResult={setScanResult} />
           )}
           {currentLocation === "members" && (
-            <div className="flex flex-col items-center">
+            <div className="">
               <MembersList members={members} />
-              <div className="flex flex-col lg:flex-row w-full p2 lg:p-5 justify-evenly">
+              <div className={style.btnSection}>
                 <CsvDownloadButton
                   members={members}
                   formattedDate={formattedDate}
