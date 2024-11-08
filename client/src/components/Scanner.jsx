@@ -5,7 +5,7 @@ const Scanner = ({ scanResult, setScanResult }) => {
   const [scanSuccess, setScanSuccess] = useState(false);
 
   const style = {
-    p: "w-[45%] lg:w-full lg:mb-3 text-white text-center text-md md:text-lg lg:text-xl lg:text-left p-2 rounded-md bg-neutral-800",
+    p: "w-[45%] lg:w-full lg:mb-3 text-white text-center text-md md:text-xl lg:text-xl lg:text-left p-2 rounded-md bg-neutral-800",
   };
 
   useEffect(() => {
