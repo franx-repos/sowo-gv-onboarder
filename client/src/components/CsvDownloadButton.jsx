@@ -15,7 +15,7 @@ const CsvDownloadButton = ({ members, formattedDate }) => {
       data={members}
       headers={headers}
       filename={`sowo-gv-${formattedDate}`}
-      className="w-fit bg-neutral-950 border-2 border-pink-700 hover:bg-pink-800 mx-auto my-4 py-2 px-4 text-white hover:text-white rounded inline-flex items-center"
+      className="w-fit bg-neutral-950 border-2 border-pink-800 hover:bg-pink-800 mx-auto my-4 py-2 px-4 text-white hover:text-white rounded inline-flex items-center"
     >
       <DownloadIcon />
       CSV speichern

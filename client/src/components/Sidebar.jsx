@@ -29,7 +29,7 @@ function Sidebar({ membersCount }) {
       <p className={style.p}>anwesend: {membersCount}</p>
       <p
         className={`w-[48%] lg:w-full lg:mb-3 text-white text-md md:text-xl lg:text-xl p-2 rounded-md ${
-          hasQuorum ? "bg-teal-500" : "bg-red-500"
+          hasQuorum ? "bg-teal-600" : "bg-red-600"
         }`}
       >
         Quorum: {hasQuorum ? "ja" : "nein"}

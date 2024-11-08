@@ -9,7 +9,7 @@ import useDateTime from "../hooks/useDateTime";
 import useMembers from "../hooks/useMembers";
 
 const Home = () => {
-  const { members, addMember } = useMembers();
+  const { members, addMember, clearMembers } = useMembers();
   const [currentLocation, setCurrentLocation] = useState("scanner");
   const [scanResult, setScanResult] = useState(null);
   const { date: formattedDate, time: formattedTime } = useDateTime();
@@ -55,10 +55,17 @@ const Home = () => {
                   members={members}
                   formattedDate={formattedDate}
                 />
+                <button
+                  onClick={() => {
+                    clearMembers();
+                  }}
+                  className="w-fit bg-neutral-950 border-2 border-pink-800 hover:bg-red-600 hover:border-red-600 mx-auto my-4 py-2 px-4 text-white hover:text-white rounded inline-flex items-center"
+                >
+                  Liste löschen
+                </button>
               </div>
             </div>
           )}
-
           {currentLocation === "form" && <ManualInput addMember={addMember} />}
         </div>
       </div>

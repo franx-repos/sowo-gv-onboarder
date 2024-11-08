@@ -23,7 +23,11 @@ const useMembers = () => {
     }
   };
 
-  return { members, addMember };
+  const clearMembers = () => {
+    setMembers([]);
+  };
+
+  return { members, addMember, clearMembers };
 };
 
 export default useMembers;

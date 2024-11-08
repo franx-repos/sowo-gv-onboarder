@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const MembersList = ({ members }) => {
   const style = {
@@ -11,6 +11,10 @@ const MembersList = ({ members }) => {
   };
 
   const [sortedMembers, setSortedMembers] = useState(members);
+
+  useEffect(() => {
+    setSortedMembers(members);
+  }, [members]);
 
   const sortMembers = (key) => {
     const sortedArray = [...members].sort((a, b) => {
@@ -33,10 +37,6 @@ const MembersList = ({ members }) => {
   return (
     <div className="flex flex-col mt-2 lg:mt-10">
       <div className="hidden md:flex lg:flex flex-col space-y-4">
-        {/* <button className={style.btn} onClick={() => setSortedMembers(members)}>
-        Reset
-      </button> */}
-
         <table className={style.table}>
           <thead>
             <tr>
